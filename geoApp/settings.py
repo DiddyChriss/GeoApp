@@ -85,35 +85,35 @@ WSGI_APPLICATION = 'geoApp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-#
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'geoApp',
-#         'USER': 'root',
-#         'PASSWORD': 'geoApp123',
-#         'HOST': '127.0.0.1',
-#         'Port': '3306',
-#         'OPTION': {
-#             'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
-#         },
-#     }
-# }
-
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd3t3kuet469b4i',
-        'USER': 'igykbqcibmyieo',
-        'PASSWORD': 'c2427279a64c2eab1c916bbd27b908bdc529dd7d7a3bea5e21c91ecfa3878573',
-        'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
-        'Port': 5432,
-        # 'OPTION': {
-        #     'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
-        # },
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'geoApp',
+        'USER': 'root',
+        'PASSWORD': 'geoApp123',
+        'HOST': '127.0.0.1',
+        'Port': '3306',
+        'OPTION': {
+            'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
+        },
     }
 }
+
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd3t3kuet469b4i',
+#         'USER': 'igykbqcibmyieo',
+#         'PASSWORD': 'c2427279a64c2eab1c916bbd27b908bdc529dd7d7a3bea5e21c91ecfa3878573',
+#         'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
+#         'Port': 5432,
+#         # 'OPTION': {
+#         #     'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
+#         # },
+#     }
+# }
 
 
 # Password validation
