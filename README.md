@@ -24,11 +24,17 @@
 #### Use virtualenv
 #### "pip install -r requirements.txt" to install all supply software
 #### "python3 manage.py createsuperuser" so you can manage Django Api UI
+#### setup database and create superuser or register as API user
 #### Now you can add IP address and get geo data.
 #### Have fun!
 
 ## Instructions
-#### In admin 
+#### look at list of data:
+![Geo](READMEimg/list.png)
+#### post some IP address to get geo location data:
+![Geo](READMEimg/post.png)
+#### geo locatioin data store in models:
+![Geo](READMEimg/admindata.png)
 
 ## Live View
 Live view available on (https://geo-app-diddychriss.herokuapp.com/) 
