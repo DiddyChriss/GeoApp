@@ -33,7 +33,8 @@ SECRET_KEY = '0h57d_k(*f(5bo61(3xuk(ag@y3#0y--$9qb5nsw_di8($+zk0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['geo-app-diddychriss.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['geo-app-diddychriss.herokuapp.com']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -50,9 +51,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -86,34 +89,34 @@ WSGI_APPLICATION = 'geoApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'geoApp',
-        'USER': 'root',
-        'PASSWORD': 'geoApp123',
-        'HOST': '127.0.0.1',
-        'Port': '3306',
-        'OPTION': {
-            'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
-        },
-    }
-}
-
-#
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'd3t3kuet469b4i',
-#         'USER': 'igykbqcibmyieo',
-#         'PASSWORD': 'c2427279a64c2eab1c916bbd27b908bdc529dd7d7a3bea5e21c91ecfa3878573',
-#         'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
-#         'Port': 5432,
-#         # 'OPTION': {
-#         #     'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
-#         # },
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'geoApp',
+#         'USER': 'root',
+#         'PASSWORD': 'Terazpa$y1',
+#         'HOST': '127.0.0.1',
+#         'Port': '3306',
+#         'OPTION': {
+#             'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
+#         },
 #     }
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd3t3kuet469b4i',
+        'USER': 'igykbqcibmyieo',
+        'PASSWORD': 'c2427279a64c2eab1c916bbd27b908bdc529dd7d7a3bea5e21c91ecfa3878573',
+        'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
+        'Port': 5432,
+        # 'OPTION': {
+        #     'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
+        # },
+    }
+}
 
 
 # Password validation
@@ -159,11 +162,11 @@ REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY': 'error',
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.authentication.BasicAuthentication',
 
     ),
@@ -191,11 +194,42 @@ SIMPLE_JWT = {
     'TOKEN_TYPE_CLAIM': 'token_type',
 
     'JTI_CLAIM': 'jti',
-    #
-    # 'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-    # 'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
-    # 'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+
+    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
+    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "https://geo-app-diddychriss.herokuapp.com",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
+
+# CSRF_TRUSTED_ORIGINS = [
+#     'change.allowed.com',
+# ]
+#
+# CORS_ALLOW_METHODS = [
+#     'DELETE',
+#     'GET',
+#     'OPTIONS',
+#     'PATCH',
+#     'POST',
+#     'PUT',
+# ]
+#
+# CORS_ALLOW_HEADERS = [
+#     'accept',
+#     'accept-encoding',
+#     'authorization',
+#     'content-type',
+#     'dnt',
+#     'origin',
+#     'user-agent',
+#     'x-csrftoken',
+#     'x-requested-with',
+# ]
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -213,9 +247,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# AUTHENTICATION_BACKENDS = [
-#      'django.contrib.auth.backends.ModelBackend'
-# ]
+AUTHENTICATION_BACKENDS = [
+     'django.contrib.auth.backends.ModelBackend'
+]
 
 STATIC_URL = '/static/'
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]

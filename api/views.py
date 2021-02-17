@@ -35,7 +35,7 @@ class GeoAPIView(mixins.CreateModelMixin,
         return serializer.save(user=self.request.user)
 
     def create(self, request, *args, **kwargs):
-        serializer = GeoLocationSerializer(data=request.data)
+        serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=request.user)
             geo = Geo.objects.get(user=request.user, ip_address=serializer.data['ip_address'])
