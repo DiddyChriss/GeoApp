@@ -1,15 +1,11 @@
-import requests
-from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.password_validation import validate_password
 
 from rest_framework import serializers
-from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from rest_framework.validators import UniqueValidator
-from django.contrib.auth.password_validation import validate_password
+
 
 class RegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
@@ -18,7 +14,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     )
 
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
-    password2 = serializers.CharField(write_only=True, required=True)
+    password2 = serializers.CharField(write_only=True, required=True, validators=[validate_password])
     class Meta:
         model = User
         fields = (
@@ -64,7 +60,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         return data
 
 
-class LogoutSerializer(serializers.Serializer):
+class TokenLogoutSerializer(serializers.Serializer):
     refresh = serializers.CharField()
 
     default_error_messages = {

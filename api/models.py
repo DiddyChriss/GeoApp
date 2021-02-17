@@ -10,3 +10,4 @@ class Geo(models.Model):
         return str(f'{self.user}, {self.ip_address}')
 
 
+

@@ -33,8 +33,8 @@ SECRET_KEY = '0h57d_k(*f(5bo61(3xuk(ag@y3#0y--$9qb5nsw_di8($+zk0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['geo-app-diddychriss.herokuapp.com']
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['geo-app-diddychriss.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -90,31 +90,31 @@ WSGI_APPLICATION = 'geoApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'geoApp',
-#         'USER': 'root',
-#         'PASSWORD': 'Terazpa$y1',
-#         'HOST': '127.0.0.1',
-#         'Port': '3306',
-#         'OPTION': {
-#             'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
-#         },
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd3t3kuet469b4i',
-        'USER': 'igykbqcibmyieo',
-        'PASSWORD': 'c2427279a64c2eab1c916bbd27b908bdc529dd7d7a3bea5e21c91ecfa3878573',
-        'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
-        'Port': 5432,
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'geoApp',
+        'USER': 'root',
+        'PASSWORD': 'Terazpa$y1',
+        'HOST': '127.0.0.1',
+        'Port': '3306',
+        'OPTION': {
+            'init_command':"SET sql_mode='STRICT_TRANS_TABLE',"
+        },
     }
 }
+
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd3t3kuet469b4i',
+#         'USER': 'igykbqcibmyieo',
+#         'PASSWORD': 'c2427279a64c2eab1c916bbd27b908bdc529dd7d7a3bea5e21c91ecfa3878573',
+#         'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
+#         'Port': 5432,
+#     }
+# }
 
 
 # Password validation

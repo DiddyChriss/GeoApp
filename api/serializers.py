@@ -21,7 +21,7 @@ class GeoLocationSerializer(ModelSerializer):
         ]
 
     def get_pk(self, obj):
-        if not obj.pk:
+        if not str(obj.pk):
             raise serializers.ValidationError('pk does not exists!')
         return str(obj.pk)
 

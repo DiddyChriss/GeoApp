@@ -1,10 +1,6 @@
-from django.contrib import auth
-from django.db import IntegrityError
-
 from rest_framework import status, generics, mixins, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-# from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .models import *
 from .serializers import *
@@ -17,7 +13,6 @@ class GeoAPIView(mixins.CreateModelMixin,
 
     queryset = Geo.objects.all()
     serializer_class = GeoLocationSerializer
-    # authentication_classes = (JWTAuthentication,)
     permission_classes = (IsAuthenticated,)
 
 
