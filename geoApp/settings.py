@@ -33,8 +33,8 @@ SECRET_KEY = '0h57d_k(*f(5bo61(3xuk(ag@y3#0y--$9qb5nsw_di8($+zk0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['geo-app-diddychriss.herokuapp.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['geo-app-diddychriss.herokuapp.com']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
