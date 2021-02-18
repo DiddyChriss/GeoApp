@@ -16,7 +16,6 @@ class GeoAPIView(mixins.CreateModelMixin,
     serializer_class = GeoLocationSerializer
     permission_classes = (IsAuthenticated,)
 
-
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         queryset = queryset.filter(user=request.user)

@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
+from django.contrib.auth import login
 
 from rest_framework import generics, permissions, mixins, viewsets, status
-from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from .models import *
@@ -22,14 +22,12 @@ class MyObtainTokenPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
     permission_classes = (AllowAny,)
 
-class TokenLogoutView(generics.GenericAPIView):
-    serializer_class = TokenLogoutSerializer
-    custom_serializer_classes = MyTokenObtainPairSerializer
-    permission_classes = (IsAuthenticated,)
-
-
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
+    def post(self, request, format=None):
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        user_data = serializer.validated_data['user']
+        user = User.objects.get(username=user_data)
+        login(request, user)
+        return super(MyObtainTokenPairView, self).post(request, format=None)
+    
+

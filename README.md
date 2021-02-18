@@ -23,16 +23,19 @@
 #### git clone repository "https://github.com/DiddyChriss/GeoApp.git"
 #### Use virtualenv
 #### "pip install -r requirements.txt" to install all supply software
-<<<<<<< HEAD
 #### "python3 manage.py createsuperuser" so you can manage Django Api UI, register as API user
-=======
 #### "python3 manage.py createsuperuser" so you can manage Django Api UI or register as API user
->>>>>>> 09fa1453599722de48ef76e86e619b84423becaf
 #### Now you can add IP address and get geo data.
 #### Have fun!
 
 ## Instructions
-#### look at list of data:
+#### Login as superuser or create api user | url */register/
+![Geo](READMEimg/register.png)
+#### url */token/ so you can get your token for authorization:
+![Geo](READMEimg/loginJWT.png)
+#### now you can verify your access token in postman  */api/:
+![Geo](READMEimg/postman.jpg)
+#### look at list of data  | url */api/
 ![Geo](READMEimg/list.png)
 #### post some IP address to get geo location data:
 ![Geo](READMEimg/post.png)
@@ -43,7 +46,7 @@
 Live view available on (https://geo-app-diddychriss.herokuapp.com/) 
 
 ## Status
-In progress
+Finish!
 
 ## Contact
 Created by [DiddyChriss] (http://chriss.pythonanywhere.com/) - feel free to contact me!
