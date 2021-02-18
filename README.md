@@ -23,7 +23,11 @@
 #### git clone repository "https://github.com/DiddyChriss/GeoApp.git"
 #### Use virtualenv
 #### "pip install -r requirements.txt" to install all supply software
+<<<<<<< HEAD
 #### "python3 manage.py createsuperuser" so you can manage Django Api UI, register as API user
+=======
+#### "python3 manage.py createsuperuser" so you can manage Django Api UI or register as API user
+>>>>>>> 09fa1453599722de48ef76e86e619b84423becaf
 #### Now you can add IP address and get geo data.
 #### Have fun!
 
