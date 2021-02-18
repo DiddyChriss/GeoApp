@@ -1,7 +1,4 @@
-import datetime
-from test import *
 from django.contrib.auth import get_user_model
-from django.core.files import File
 
 from rest_framework import status
 from rest_framework.test import APIClient, APITestCase

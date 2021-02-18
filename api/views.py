@@ -1,4 +1,5 @@
 from rest_framework import status, generics, mixins, viewsets
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 

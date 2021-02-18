@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-----------------------'
+SECRET_KEY = '0h57d_k(*f(5bo61(3xuk(ag@y3#0y--$9qb5nsw_di8($+zk0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'geoApp',
         'USER': 'root',
-        'PASSWORD': '-----',
+        'PASSWORD': 'Terazpa$y1',
         'HOST': '127.0.0.1',
         'Port': '3306',
         'OPTION': {
@@ -110,7 +110,7 @@ DATABASES = {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'd3t3kuet469b4i',
 #         'USER': 'igykbqcibmyieo',
-#         'PASSWORD': '-----',
+#         'PASSWORD': 'c2427279a64c2eab1c916bbd27b908bdc529dd7d7a3bea5e21c91ecfa3878573',
 #         'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
 #         'Port': 5432,
 #     }
@@ -159,14 +159,17 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY': 'error',
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
 
     ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    # "DEFAULT_PARSER_CLASSES":(
+    #     "rest_framework.parsers.JSONParser",
+    # ),
 }
 
 SIMPLE_JWT = {
@@ -182,7 +185,7 @@ SIMPLE_JWT = {
     'AUDIENCE': None,
     'ISSUER': None,
 
-    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_HEADER_TYPES': ('Bearer', 'JWT'),
     'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
     'USER_ID_FIELD': 'id',
     'USER_ID_CLAIM': 'user_id',
@@ -198,6 +201,7 @@ SIMPLE_JWT = {
 }
 
 # CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOWED_ORIGINS = [
     "https://geo-app-diddychriss.herokuapp.com",
     "http://localhost:8000",
@@ -242,9 +246,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-AUTHENTICATION_BACKENDS = [
-     'django.contrib.auth.backends.ModelBackend'
-]
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

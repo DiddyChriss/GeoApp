@@ -35,12 +35,15 @@ class GeoLocationSerializer(ModelSerializer):
             url = f'http://api.ipstack.com/{obj.ip_address}?access_key=b5ee55e0869b57257386da06897b3655'
             headers = {'Content-Type': 'application/json'}
             response = requests.get(url, headers)
-            ip_list = response.text.strip('{').strip('}').replace('\"', '').split(sep=',')
-            ip = dict([(x.strip(']').strip('}').split(sep=':')) for x in ip_list if 'flag' not in x and
-                    'location' not in x and 'pl' not in x])
+            ip_l1 = [[(l.rstrip(']').rstrip('}').rstrip('[').split(sep=':'))
+                      for l in (x.split(sep=',')) if 'http' not in l]
+                     for x in response.text.lstrip('{').rstrip('}').replace('\"', '').rsplit(sep='{')]
+            ip_l1[1][2][1] = dict(ip_l1[2])
+            ip_l2 = ip_l1[:-1]
+            ip_l2[0][12][1] = dict(ip_l2[1])
+            ip = dict(ip_l2[:-1][0])
         except:
-            ip = None
-            raise serializers.ValidationError('upsss, something went wrong!')
+            raise serializers.ValidationError('upsss, something went wrong with your geo location data!')
         return ip
 
     def validate_ip_address(self, value):

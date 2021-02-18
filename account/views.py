@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+
 from rest_framework import generics, permissions, mixins, viewsets, status
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
