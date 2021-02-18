@@ -33,7 +33,6 @@ SECRET_KEY = '------'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['geo-app-diddychriss.herokuapp.com']
 ALLOWED_HOSTS = []
 
 
@@ -92,15 +91,12 @@ WSGI_APPLICATION = 'geoApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'geoApp',
-        'USER': 'root',
-        'PASSWORD': '-----',
-        'HOST': '127.0.0.1',
-        'Port': '3306',
-        'OPTION': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLE',"
-        },
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd3t3kuet469b4i',
+        'USER': 'igykbqcibmyieo',
+        'PASSWORD': '------',
+        'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
+        'Port': 5432,
     },
     'reserve': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -108,17 +104,7 @@ DATABASES = {
     }
 }
 
-#
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'd3t3kuet469b4i',
-#         'USER': 'igykbqcibmyieo',
-#         'PASSWORD': '------',
-#         'HOST': 'ec2-54-220-35-19.eu-west-1.compute.amazonaws.com',
-#         'Port': 5432,
-#     }
-# }
+
 
 
 # Password validation
