@@ -5,7 +5,6 @@
 * [Technologies](#technologies)
 * [Initial Setup](#initial-setup)  
 * [Instruction](#instructions)
-* [Live View](#live-view)
 * [Status](#status)
 * [Contact](#contact)
 
@@ -41,9 +40,6 @@
 ![Geo](READMEimg/post.png)
 #### geo locatioin data store in models:
 ![Geo](READMEimg/admindata.png)
-
-## Live View
-Live view available on (https://geo-app-diddychriss.herokuapp.com/) 
 
 ## Status
 Finish!
